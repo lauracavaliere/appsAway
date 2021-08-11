@@ -3,7 +3,7 @@ This repository contains all demos provided in the robot bazaar [website](https:
 
 For more information on the individual sections, please consult the corresponding page (available below)
 
-pippo pippo
+pippo pippo pippo
 
 # Repository Structure
 
