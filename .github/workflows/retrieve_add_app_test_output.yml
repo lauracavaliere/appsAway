@@ -20,4 +20,4 @@ jobs:
             repo-token: "${{ secrets.GITHUB_TOKEN }}"
             head-branch-regex: 'add_app\d+'
             body-template: |
-                  Test script result: ${{ steps.print-test-result.outputs.test_success }}
+                  "Test script result: ${{ steps.print-test-result.outputs.test_success }}"
