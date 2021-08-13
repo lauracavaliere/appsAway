@@ -15,7 +15,7 @@ jobs:
              echo "Test script result: $test_success"
              echo "::set-output name=test_success::$test_success"
 
-        - uses: tzkhan/pr-update-action@v2
+        - uses: tzkhan/pr-update-action@v1
           with:
             repo-token: "${{ secrets.GITHUB_TOKEN }}"
             base-branch-regex: '[a-z\d-_.\\/]+'
