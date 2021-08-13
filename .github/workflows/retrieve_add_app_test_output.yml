@@ -18,6 +18,7 @@ jobs:
         - uses: tzkhan/pr-update-action@v2
           with:
             repo-token: "${{ secrets.GITHUB_TOKEN }}"
+            base-branch-regex: '[a-z\d-_.\\/]+'
             head-branch-regex: 'add_app\d+'
             body-template: |
                   "Test script result: ${{ steps.print-test-result.outputs.test_success }}"
