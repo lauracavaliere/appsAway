@@ -19,6 +19,6 @@ jobs:
           with:
             pr-context: "${{ toJson(github.event.client_payload.pr_context) }}"
             repo-token: "${{ secrets.GITHUB_TOKEN }}"
-            head-branch-regex: 'add_app\d+'
+            head-branch-regex: 'add_app'
             body-template: |
                   "Test script result: ${{ steps.print-test-result.outputs.test_success }}"
