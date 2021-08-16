@@ -15,9 +15,10 @@ jobs:
              echo "Test script result: $test_success"
              echo "::set-output name=test_success::$test_success"
 
-        - uses: tzkhan/pr-update-action@v1
+        - uses: lauracavaliere/pr-update-action@master
           with:
+            context: "${{ github.event.client_payload.pr_context }}"
             repo-token: "${{ secrets.GITHUB_TOKEN }}"
-            branch-regex: 'add_app\d+'
+            head-branch-regex: 'add_app\d+'
             body-template: |
                   "Test script result: ${{ steps.print-test-result.outputs.test_success }}"
