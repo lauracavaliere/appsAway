@@ -14,8 +14,8 @@ jobs:
         id: get_workflow_token
         uses: tibdex/github-app-token@v1
         with:
-          private_key: ${{ secrets.APPLICATION_PRIVATE_KEY }}
-          app_id: ${{ secrets.APPLICATION_ID }}
+          private_key: ${{ secrets.APPLICATION_PRIVATE_KEY_TEST }}
+          app_id: ${{ secrets.APPLICATION_ID_TEST }}
           repository: icub-tech-iit/code
             
       - name: Repository Dispatch
