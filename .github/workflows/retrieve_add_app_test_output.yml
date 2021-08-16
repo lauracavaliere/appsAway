@@ -17,7 +17,7 @@ jobs:
 
         - uses: lauracavaliere/pr-update-action@master
           with:
-            context: "${{ toJson(github.event.client_payload.pr_context) }}"
+            pr-context: "${{ toJson(github.event.client_payload.pr_context) }}"
             repo-token: "${{ secrets.GITHUB_TOKEN }}"
             head-branch-regex: 'add_app\d+'
             body-template: |
