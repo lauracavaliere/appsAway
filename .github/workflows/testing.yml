@@ -1,0 +1,26 @@
+name: Testing multilines string
+
+on: workflow_dispatch
+
+jobs:
+  updating_pr_body:
+    runs-on: [ubuntu-latest]
+    steps:
+    - name: Formatting test-script outcome
+      id: format-outcome
+      run: |
+        ours_string="cameraTiltCalib robotGazebo"
+        multilines_str=$(echo $ours_string | tr ' ' '\n')
+        SAVEIFS=$IFS  
+        IFS=$'\n'     
+        multilines_list=($multilines_str) 
+        IFS=$SAVEIFS   
+        echo "Result: ${multilines_list[@]}"
+        echo "::set-output name=test_outcome::${multilines_list[@]}"
+        
+    - name: printing
+      run: |
+              Test script result\:
+              "${{ steps.format-outcome.outputs.test_outcome }}"
+
+        
