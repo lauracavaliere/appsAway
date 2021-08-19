@@ -9,14 +9,16 @@ jobs:
     - name: Formatting test-script outcome
       id: format-outcome
       run: |
-        ours_string="cameraTiltCalib robotGazebo"
-        multilines_str=$(echo $ours_string | tr ' ' '\n')
-        SAVEIFS=$IFS  
-        IFS=$'\n'     
-        multilines_list=($multilines_str) 
-        IFS=$SAVEIFS   
-        echo "Result: ${multilines_list[@]}"
-        echo "::set-output name=test_outcome::${multilines_list[@]}"
+        our_string="cameraTiltCalib robotGazebo"
+        our_list=($our_string)
+        markdown_list="<ul>"
+        for el in ${our_list[@]}
+        do
+          markdown_list="$markdown_list <li>el</li>"
+        done
+        markdown_list="$markdown_list</ul>"
+        echo "Result: $markdown_list"
+        echo "::set-output name=test_outcome::$markdown_list"
         
     - name: printing
       run: |
