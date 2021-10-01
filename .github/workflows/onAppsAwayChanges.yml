@@ -35,6 +35,7 @@ jobs:
           do 
              echo "Each file: $i"
              changed_dir=$(echo $i | awk -F'/' '{print $1"/"$2}')
+             echo "changed_dir: $changed_dir"
              changed_dirs=("$changed_dirs $changed_dir")
           done
           changed_dirs_unique=$(echo "${changed_dirs[@]}" | tr ' ' '\n' | sort -u | tr '\n' ' ') 
