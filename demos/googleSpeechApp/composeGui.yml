@@ -21,8 +21,8 @@ x-yarp-base: &yarp-base
     - "${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native"
     - "~/.config/pulse/cookie:/root/.config/pulse/cookie"
     - "/dev:/dev"
-  ports:
-    - "10000:10000"
+  #ports:
+  #  - "10000:10000"
   network_mode: "host"
   privileged: true
   #ipc: host

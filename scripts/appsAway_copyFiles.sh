@@ -133,7 +133,6 @@ init()
  else
   _ALL_LOCAL_IP_ADDRESSES=$(hostname --all-ip-address)
   _ALL_LOCAL_IP_ADDRESSES+=$(hostname --all-fqdns)
-  _ALL_LOCAL_IP_ADDRESSES+=localhost
  fi
  if [ "$_ALL_LOCAL_IP_ADDRESSES" == "" ]; then
    exit_err "unable to read local IP addresses"
@@ -282,9 +281,9 @@ overwrite_yaml_files()
             echo "overwriting ${list_yml_images[$j]} with ${list_images[$j]} in ${yml_files[$i]}" 
             if [[ ${list_versions[$j]} == "n/a" ]]
             then
-              sed -i 's,image: '"${list_yml_images[$j]}"'.*$,image: '"${list_images[$j]}"':'"${list_tags[$j]}"',g' ${yml_files[$i]}
+              sed -i 's,image: '"${list_yml_images[$j]}"':.*$,image: '"${list_images[$j]}"':'"${list_tags[$j]}"',g' ${yml_files[$i]}
             else
-              sed -i 's,image: '"${list_yml_images[$j]}"'.*$,image: '"${list_images[$j]}"':'"${list_versions[$j]}"'_'"${list_tags[$j]}"',g' ${yml_files[$i]}
+              sed -i 's,image: '"${list_yml_images[$j]}"':.*$,image: '"${list_images[$j]}"':'"${list_versions[$j]}"'_'"${list_tags[$j]}"',g' ${yml_files[$i]}
             fi 
         done         
       fi

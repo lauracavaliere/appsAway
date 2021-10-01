@@ -14,6 +14,7 @@ function createWindow(){
             nodeIntegration: true, 
             contextIsolation: false,
             devTools: true,
+            enableRemoteModule: true,
             preload: path.join(__dirname, 'preload.js')
         }
     })
@@ -23,10 +24,12 @@ function createWindow(){
     // mainWindow.setMaximizable(false);
     mainWindow.setMenu(null);
 
+    mainWindow.setIcon(path.join(__dirname, 'assets/icon.png'));
+
     // Load index.html
     mainWindow.loadFile('index.html')
     // open devtools
-    mainWindow.webContents.openDevTools();
+    // mainWindow.webContents.openDevTools();
 }
 
 app.whenReady().then(() => {

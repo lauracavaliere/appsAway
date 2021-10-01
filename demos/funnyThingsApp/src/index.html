@@ -11,8 +11,26 @@
   </head>
   <body>
     <div>
-      <h1>Funny Things Demo</h1>
+      <h1>Funny Things Application</h1>
       <h3>Choose the actions the robot will perform</h3>
+      <div class="buttons-container top-actions">
+        <div class="dropdown">
+          <button onclick="exportActivities()" data="Save">
+            <img src="assets/save.svg"/>
+          </button>
+        </div>
+        <div class="dropdown">
+          <button onclick="importActivities()" data="Open">
+            <img src="assets/load.svg"/>
+          </button>
+        </div>
+        <div class="dropdown">
+          <button onclick="bashExporter()" data="Export">
+            <img src="assets/export.svg"/>
+          </button>
+        </div>
+      </div>
+
       <div class="panels-container">
         <div class="panel-container">
           <span>Available Actions</span>
@@ -27,16 +45,19 @@
         </div>         
       </div>
       <div class="buttons-container">
-        <button class="run" onclick="runDemo()">
+        <button onclick="runDemo()" id="run" data="Run">
           <img src="assets/run.png"/>
         </button>
-        <button class="stop" onclick="stopDemo()">
+        <button onclick="stopDemo()" data="Stop">
           <img src="assets/stop.png"/>
         </button>
-        <button class="clear" onclick="clearAll()">
-          <img src="assets/run.png"/>
+        <button onclick="clearAll()" id="clear" data="Clear">
+          <img src="assets/clear.png"/>
         </button>
-      </div>   
+      </div>  
+      <div class="invisible popup">
+        Invalid funnythings file
+      </div> 
     </div> 
   </body>
 </html>
