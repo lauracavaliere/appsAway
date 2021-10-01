@@ -28,7 +28,7 @@ jobs:
       - name: find demo name
         id: set_app_list
         run: |
-          changed_files=($(echo '${{ steps.file_changes.outputs.files}}' | tr ',' '\n'))
+          changed_files=($(echo '${{ steps.file_changes.outputs.files}}' | tr ',' '\n' | tr -d '[' | tr -d ']'))
           echo "changed_files: ${changed_files[@]}"
           changed_dirs=""
           for i in "${changed_files[@]}"
