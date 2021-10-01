@@ -38,7 +38,7 @@ jobs:
              echo "changed_dir: $changed_dir"
              changed_dirs=("$changed_dirs $changed_dir")
           done
-          echo ${chaned_dirs[@]}
+          echo ${changed_dirs[@]}
           changed_dirs_unique=$(echo "${changed_dirs[@]}" | tr ' ' '\n' | sort -u | tr '\n' ' ') 
           app_name_list=""
           iter_app_list=0
