@@ -29,6 +29,7 @@ jobs:
         id: set_app_list
         run: |
           parsed_list=($(echo '${{ steps.file_changes.outputs.files}}' | tr ',' '\n'))
+          echo "Parsed list: ${parsed_list[@]}"
           for i in "${parsed_list[@]}"
           do
             app_name=($(echo $i | awk -F'/' '{print $1,$2}'))
