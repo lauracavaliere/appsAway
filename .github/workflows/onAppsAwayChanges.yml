@@ -32,9 +32,10 @@ jobs:
           echo "changed_files: ${changed_files[@]}"
           changed_dirs=""
           for i in "${changed_files[@]}"
-          do
-                changed_dir=$(echo $i | awk -F'/' '{print $1"/"$2}')
-                changed_dirs=("$changed_dirs $changed_dir")
+          do 
+             echo "Each file: $i"
+             changed_dir=$(echo $i | awk -F'/' '{print $1"/"$2}')
+             changed_dirs=("$changed_dirs $changed_dir")
           done
           changed_dirs_unique=$(echo "${changed_dirs[@]}" | tr ' ' '\n' | sort -u | tr '\n' ' ') 
           app_name_list=""
