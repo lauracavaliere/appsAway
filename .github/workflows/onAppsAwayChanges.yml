@@ -36,10 +36,11 @@ jobs:
              echo "Each file: $i"
              changed_dir=$(echo $i | tr -d '"' | awk -F'/' '{print $1"/"$2}')
              echo "changed_dir: $changed_dir"
-             changed_dirs=("$changed_dirs $changed_dir")
+             changed_dirs="$changed_dirs $changed_dir"
           done
-          echo ${changed_dirs[@]}
-          changed_dirs_unique=$(echo "${changed_dirs[@]}" | tr ' ' '\n' | sort -u | tr '\n' ' ') 
+          echo "Changed dirs: ${changed_dirs[@]}"
+          changed_dirs_unique=($(echo "${changed_dirs[@]}" | tr ' ' '\n' | sort -u | tr '\n' ' '))
+          echo "Changed list unique: ${changed_dirs_unique[@]}"
           app_name_list=""
           iter_app_list=0
           for i in "${changed_dirs_unique[@]}"
